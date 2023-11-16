@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const persona = {
+            nombre: "Manuel",
+            apellido: "Férnandez",
+            edad: 41,
+            pasatiempos: ["bailar", "hacer senderismo",
+            "montar a caballo"],
+            soltero: false,
+            contacto: {
+                telefonoMovil: 683013953,
+                email: "manufernandez@hotmail.es",
+                twitter:"Manfer41"
+            },
+            saludar: function(){
+                console.log("Hola ")
+            },
+
+            nombreCompleto: function(){
+                console.log(`Su nombre completo es ${this.nombre}
+                ${this.apellido} tiene ${this.edad} años y su twitter
+                es: "${this.contacto.twitter}".`)
+            }
+
+        }    
+        
+          // en este contexto la palabra this hace referencia         
+          // al mismo objeto. Concatenamos diferentes propiedades.
+          // atención a la sintaxis y a "``"
+
+
+        //   //acceder a la referencia
+         console.log(persona);
+        //  console.log(persona.nombre);       // acceder a los atributos/propiedades
+        //  console.log(persona.soltero);      // del objeto.
+        //  console.log(persona.pasatiempos);
+        //  console.log(persona.pasatiempos[0]);
+        //  console.log(persona.contacto.telefonoMovil);
+        //  persona.saludar();                 // llamamos al método.
+        //  persona.nombreCompleto();
+
+        
+        //  console.log(Object.keys(persona));  
+
+         // es un metodo que nos permite listar todas las llaves
+         // del objeto. Generando un array.
+
+        //  console.log(Object.values(persona));  
+
+         // este método nos da los valores. Genera un array.
+
+        //  console.log(persona.hasOwnProperty("edad"));  
+        //  console.log(persona.hasOwnProperty("nacimiento"));  
+
+         // Nos dice si esa propiedad existe en el objeto.
+
+        
+
+
+
+
+    </script>
+</body>
+</html>

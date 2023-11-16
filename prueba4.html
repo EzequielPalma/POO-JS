@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // Clases y herencia
+        // Vamos a simplificar mediante la sintaxis de las clases
+        // lo anteriormente visto.
+
+           // Las clases para recibir parámetros tienen un método
+        // llamado constructor que recibe las propiedades.
+        // Y con this las asignamos.
+
+
+        class Animal{
+            constructor(nombre,color){    
+                this.nombre = nombre; 
+                this.color = color; 
+        }
+        // aquí no hay que sacar los métodos para evitar duplicidades
+        // porque JavaScript lo hace por nosotros.
+
+        sonido(){   
+                console.log("Hace un sonido"); 
+            }
+        saludar(){
+                console.log(`Hola, soy un ${this.nombre}`)
+            }  
+        }
+
+        // Herencia
+        // Con la palabra reservada extends le decimos que herede de Animal.
+
+        // class Perro extends Animal {
+        //     constructor(nombre, color, tamaño) {
+        //         super(nombre, color);
+        //         this.tamaño = tamaño;
+
+        //         // Con la palabra clave super se llama al constructor de
+        //         // la clase padre. Y le pasamos sus parámetros.
+        //         // Y con this definimos la propiedad tamaño.
+        //     }
+
+        //     // Sobreescritura de métodos.
+
+        //     sonido(){
+        //         console.log("Mi sonido es un ladrido.")
+        //     }
+
+        //     // Generamos un método nuevo.
+
+        //     ladrido(){
+        //         console.log("Guau guau")
+        //     }
+    
+        // }
+
+
+
+
+
+        const pinguino =  new Animal("Pingüino", "Blanco y negro");
+        const vaca = new Animal("Vaca", "blanca y negra")
+        // const chihuahua = new Perro("Chihuahua", "marrón", "pequeño")
+
+            // Al contrario que en la prueba2 podemos ver que los métodos
+            // están dentro del prototipo y no fuera. Evitando duplicidades.
+
+        console.log(pinguino);
+        pinguino.saludar();
+        pinguino.sonido();
+        console.log(vaca);
+        vaca.saludar();
+        vaca.sonido();
+        // console.log(chihuahua);
+        // chihuahua.saludar();
+        // chihuahua.sonido();
+        // chihuahua.ladrido();
+                         
+
+
+    </script>
+    
+</body>
+</html>

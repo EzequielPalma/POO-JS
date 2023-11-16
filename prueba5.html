@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Todas las clases son públicas. En este lenguaje no podemos
+        // utilizar private, lo que haría que fuera accesible solo desde
+        // la misma clase.
+
+        class Animal{
+            constructor(nombre,color){    
+                this.nombre = nombre; 
+                this.color = color; 
+        }
+       
+
+        sonido(){   
+                console.log("Hace un sonido"); 
+            }
+        saludar(){
+                console.log(`Hola, soy un ${this.nombre}`)
+            }  
+        }
+
+       
+
+        class Perro extends Animal {
+            constructor(nombre, color, tamaño) {
+                super(nombre, color);
+                this.tamaño = tamaño;
+                this.chip = null;               
+            }
+
+
+            sonido(){
+                console.log("Mi sonido es un ladrido.")
+            }
+
+
+            ladrido(){
+                console.log("Guau guau")
+            }    
+
+            // Un método estatico es aquél que se puede ejecutar
+            // sin necesidad de instanciar la clase. 
+            // Sin tener un objeto creado, podemos invocarlo directamente.
+            // Al ser estático no sale dentro del prototipo.
+            // No estan asociadas a un objeto, sino a la clase en si.
+
+              static queEres(){
+                console.log("Mamífero carnívoro doméstico de la familia de los cánidos que se caracteriza por tener los sentidos del olfato y el oído muy finos, por su inteligencia y por su fidelidad al ser humano, que lo ha domesticado desde tiempos prehistóricos; hay muchísimas razas, de características muy diversas.")
+
+            }
+
+            // Los setters y los getters son métodos especiales  que nos 
+            // permiten establecer y obtener los valores de los atributos
+            // de nuestra clase.
+            // le ponemos get para detectar que es un metodo obtenedor. 
+
+            // get getChip(){
+            //     return this.chip
+            // }
+
+            // Generamos un metodo establecedor que modifique el valor
+            // de la propiedad.
+
+        //     set setChip(chip){
+        //         this.chip = chip;
+        //     }
+         }
+
+
+
+
+
+        const pinguino =  new Animal("Pingüino", "Blanco y negro");
+            vaca = new Animal("Vaca", "blanca y negra")
+            chihuahua = new Perro("Chihuahua", "marrón", "pequeño")
+
+           
+
+        console.log(pinguino);
+        pinguino.saludar();
+        pinguino.sonido();
+        console.log(vaca);
+        vaca.saludar();
+        vaca.sonido();
+        console.log(chihuahua);
+        chihuahua.saludar();
+        chihuahua.sonido();
+        chihuahua.ladrido();
+        
+        Perro.queEres();
+        //chihuahua.queEres();
+        // Perro.saludar();
+
+        // JavaScript trata a estos métodos como si fueran atributos
+        // y no métodos.
+        // chihuahua.getChip(); // Nos dirá que no es un método.
+
+        // console.log(chihuahua.getChip);
+        // chihuahua.setChip = true;
+        // console.log(chihuahua.getChip);
+        // console.log(chihuahua);
+        
+
+    </script>
+</body>
+</html>

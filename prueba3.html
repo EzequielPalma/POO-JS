@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Animal (nombre,color){
+            this.nombre = nombre;    
+            this.color = color;            
+        }
+
+            Animal.prototype.sonido = function (){   
+                console.log("Hace un sonido"); 
+            }
+            Animal.prototype.saludar = function(){
+                console.log(`Hola, soy un ${this.nombre}`)
+            }                   
+
+            // Herencia prototípica
+
+            // Función constructora
+
+            function Perro(nombre, color, tamaño){
+                this.super = Animal;
+                this.super(nombre,color);  // le pasamos los parametros del padre.
+                this.tamaño = tamaño;      // le generamos el nuevo atributo.
+            }
+            
+            Perro.prototype = new Animal();     
+            Perro.prototype.constructor = Perro; // Le generamos un
+                                                 // constructor a la función
+                                                 // constructora. obtiene
+                                                 // los métodos de su padre.
+
+           
+
+            // Sobreescritura de los métodos del prototipo padre en el hijo.
+            Perro.prototype.sonido = function(){
+                console.log("Mi sonido es un ladrido.")
+            }   
+
+            
+            // Le añadimos un método que no está en el Padre Animal.
+
+            Perro.prototype.ladrido = function() {
+                console.log("Guau guau")
+            }
+
+        const cerdo = new Animal ("cerdo", "rosa")
+        const oveja = new Animal ("oveja", "blanco")     
+        const caniche = new Perro ("caniche", "blanco", "pequeño")      
+
+        console.log(cerdo, oveja);
+        cerdo.saludar();
+        cerdo.sonido();
+        oveja.saludar();
+        oveja.sonido();
+
+        // en la variable super vemos la herencia prototípica de Animal.
+        // en prototipo, a diferencia de animal que es Object
+        // aquí es la función constructora de la cual hereda.
+        // También podemos ver como se sobreescribe la funcion sonido.
+        console.log(caniche);
+        caniche.saludar();
+        caniche.sonido();
+        caniche.ladrido();
+
+    </script>
+</body>
+</html>

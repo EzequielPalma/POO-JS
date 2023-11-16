@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const animal = {
+            nombre: "gato",
+            color: "negro",
+            sonido(){
+                console.log("miau");
+            }
+
+        }
+
+        const animal2 = {
+            nombre: "perro",
+            color: "blanco",
+            sonido(){
+                console.log("guau");
+            }
+
+        }
+
+        console.log(animal, animal2);
+
+
+        // Función constructora. Con las clases no hara falta hacer esto
+        // ya que lo haran por nosotros.
+
+        function Animal (nombre,color) {
+            //propiedades de la funcion constructora.
+            this.nombre = nombre;    
+            this.color = color;
+
+            this.sonido = function (){   
+             console.log("Hace un sonido"); 
+            }
+            this.saludar = function(){
+             console.log(`Hola, soy un ${this.nombre}`)
+            }
+        }
+
+         // this. hace referencia a la misma función donde se encuentra.
+         // y al estar en una función las propiedades y los métodos deben
+         // llevar this.
+         // this.sonido = function () no se hace igual que en un objeto.
+
+
+
+
+            // Métodos: Lo ideal es dejar solamente los atributos en la 
+            // función constructora y sacar los métodos. Se los asignamos al
+            // prototipo de la funcion constructora y no a la función como tal.
+            // Va a evitar los duplicados dentro de las instancias.
+            
+
+            // function Animal (nombre,color) {
+            // this.nombre = nombre;    
+            // this.color = color;            
+            // }
+
+            // Animal.prototype.sonido = function (){   
+            //     console.log("Hace un sonido"); 
+            // }
+            // Animal.prototype.saludar = function(){
+            //     console.log(`Hola, soy un ${this.nombre}`)
+            // }
+
+            // Se puede ver en la consola que los metodos salen en el prototipo
+            // y no en la función constructora como tal.
+            
+
+       
+
+        const cerdo = new Animal ("cerdo", "rosa")
+        const oveja = new Animal ("oveja", "blanco")
+
+          
+
+            // [[Prototype]]:Object
+            // El prototipo primario que tiene javascript es
+            // el prototipo Object
+
+        console.log(cerdo, oveja);
+        cerdo.saludar();
+        cerdo.sonido();
+        oveja.saludar();
+        oveja.sonido();
+
+    </script>
+</body>
+</html>
